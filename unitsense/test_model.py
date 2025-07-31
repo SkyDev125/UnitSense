@@ -15,7 +15,7 @@ model.eval()
 
 # Load test data
 with open("./data/tagged_sentences.json", encoding="utf-8") as f:
-    test_data = json.load(f)["tagged_test_sentences"]
+    test_data = json.load(f)["tagged_sentences"]
 
 # Test the model on the test data
 for sentence in test_data:

@@ -1,7 +1,7 @@
 import json
 import os
 import sys
-from transformers import AutoTokenizer
+from transformers import BigBirdTokenizer
 
 # Ensure the parent directory is in the path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -10,8 +10,8 @@ from unitsense.constants import MODEL
 with open("./data/sentenses.json") as f:
     data = json.load(f)
 
-# Load MiniLM tokenizer
-tokenizer = AutoTokenizer.from_pretrained(MODEL)
+# Load BigBird tokenizer
+tokenizer = BigBirdTokenizer.from_pretrained(MODEL)
 
 sentences = data["training_dataset"]
 test_sentences = data["testing_dataset"]
@@ -21,7 +21,6 @@ tokenized_test_sentences = []
 for sentence in sentences:
     tokenized = tokenizer(
         sentence,
-        return_offsets_mapping=True,
         return_tensors="pt",
     )
 
@@ -29,14 +28,13 @@ for sentence in sentences:
     tokenized_sentences.append(
         {
             "sentence": sentence,
-            "tokens": tokenized.tokens(),
+            "tokens": tokenizer.tokenize(sentence),
         }
     )
 
 for sentence in test_sentences:
     tokenized = tokenizer(
         sentence,
-        return_offsets_mapping=True,
         return_tensors="pt",
     )
 
@@ -44,7 +42,7 @@ for sentence in test_sentences:
     tokenized_test_sentences.append(
         {
             "sentence": sentence,
-            "tokens": tokenized.tokens(),
+            "tokens": tokenizer.tokenize(sentence),
         }
     )
 

@@ -44,10 +44,19 @@ for labeled_sentence in labeled_sentences:
     max_tokens = max(max_tokens, len(indices))
 
 
+# Load models needed
+model = AutoModel.from_pretrained(MODEL)
+tokenizer = AutoTokenizer.from_pretrained(MODEL)
+
+
 # Pad sentences to the maximum length
 def add_padding(arr, length, mode):
     if mode == "tokens":
-        return arr + ["[PAD]"] * (length - len(arr)) if len(arr) < length else arr
+        return (
+            arr + [tokenizer.pad_token] * (length - len(arr))
+            if len(arr) < length
+            else arr
+        )
     elif mode == "labels":
         return arr + [-100] * (length - len(arr)) if len(arr) < length else arr
 
@@ -60,18 +69,12 @@ padded_indexed_sentences = [
     add_padding(sentence, max_tokens, "labels") for sentence in indexed_sentences
 ]
 
-# Load models needed
-model = AutoModel.from_pretrained(MODEL)
-tokenizer = AutoTokenizer.from_pretrained(MODEL)
-
 
 # Convert to input Ids
 def convert_to_input_ids(tokenized_sentences):
     input_ids = []
     for sentence in tokenized_sentences:
-        ids = [
-            tokenizer.vocab.get(token, tokenizer.vocab["[UNK]"]) for token in sentence
-        ]
+        ids = [tokenizer.vocab[token] for token in sentence]
         input_ids.append(ids)
     return input_ids
 

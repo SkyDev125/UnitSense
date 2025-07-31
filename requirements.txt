@@ -2,3 +2,5 @@ transformers
 datasets
 torch
 seqeval
+sentencepiece
+protobuf
