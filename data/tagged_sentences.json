@@ -1,5 +1,5 @@
 {
-  "tokenized_sentences": [
+  "tagged_sentences": [
     {
       "sentence": "The car is 100km away from the city center. Once we get there, we can buy 20 boxes of chocolates.",
       "tokens": [
@@ -30,6 +30,35 @@
         "##s",
         ".",
         "[SEP]"
+      ],
+      "labels": [
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O"
       ]
     },
     {
@@ -55,6 +84,28 @@
         "wide",
         ".",
         "[SEP]"
+      ],
+      "labels": [
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O",
+        "O"
       ]
     },
     {
@@ -82,6 +133,30 @@
         "though",
         ".",
         "[SEP]"
+      ],
+      "labels": [
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O"
       ]
     },
     {
@@ -118,6 +193,39 @@
         "foot",
         ".",
         "[SEP]"
+      ],
+      "labels": [
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O"
       ]
     },
     {
@@ -140,6 +248,25 @@
         "'",
         ".",
         "[SEP]"
+      ],
+      "labels": [
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O"
       ]
     },
     {
@@ -174,6 +301,37 @@
         "\"",
         ".",
         "[SEP]"
+      ],
+      "labels": [
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "B-measurement",
+        "B-unit",
+        "I-unit",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O"
       ]
     },
     {
@@ -193,10 +351,26 @@
         "tall",
         ".",
         "[SEP]"
+      ],
+      "labels": [
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O",
+        "O"
       ]
     }
   ],
-  "tokenized_test_sentences": [
+  "tagged_test_sentences": [
     {
       "sentence": "The distance from the school to the park is 1.5 miles.",
       "tokens": [
@@ -216,6 +390,24 @@
         "miles",
         ".",
         "[SEP]"
+      ],
+      "labels": [
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "I-measurement",
+        "I-measurement",
+        "B-unit",
+        "O",
+        "O"
       ]
     },
     {
@@ -239,6 +431,26 @@
         "wide",
         ".",
         "[SEP]"
+      ],
+      "labels": [
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O",
+        "O"
       ]
     },
     {
@@ -260,6 +472,24 @@
         "'",
         ".",
         "[SEP]"
+      ],
+      "labels": [
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "I-unit",
+        "O",
+        "O"
       ]
     },
     {
@@ -285,6 +515,28 @@
         "feet",
         ".",
         "[SEP]"
+      ],
+      "labels": [
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "B-measurement",
+        "B-unit",
+        "O",
+        "O"
       ]
     }
   ]

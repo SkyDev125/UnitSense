@@ -1,16 +1,22 @@
 import json
+import os
+import sys
 from transformers import AutoTokenizer
+
+# Ensure the parent directory is in the path for imports
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from unitsense.constants import MODEL
 
 with open("./data/sentenses.json") as f:
     data = json.load(f)
 
 # Load MiniLM tokenizer
-tokenizer = AutoTokenizer.from_pretrained("microsoft/MiniLM-L12-H384-uncased")
+tokenizer = AutoTokenizer.from_pretrained(MODEL)
 
-# Sample sentence
-sentences = data["sentences"]
-
+sentences = data["training_dataset"]
+test_sentences = data["testing_dataset"]
 tokenized_sentences = []
+tokenized_test_sentences = []
 
 for sentence in sentences:
     tokenized = tokenizer(
@@ -19,20 +25,37 @@ for sentence in sentences:
         return_tensors="pt",
     )
 
-    # Map back to word indices
-    word_ids = tokenized.word_ids()
-
+    # Save tokenized sentence with input_ids, attention_mask, word IDs, and offsets
     tokenized_sentences.append(
         {
             "sentence": sentence,
             "tokens": tokenized.tokens(),
-            "word_ids": word_ids,
-            "offsets": tokenized["offset_mapping"].tolist(),
+        }
+    )
+
+for sentence in test_sentences:
+    tokenized = tokenizer(
+        sentence,
+        return_offsets_mapping=True,
+        return_tensors="pt",
+    )
+
+    # Save tokenized test sentence with input_ids, attention_mask, word IDs, and offsets
+    tokenized_test_sentences.append(
+        {
+            "sentence": sentence,
+            "tokens": tokenized.tokens(),
         }
     )
 
 # Write updated tokenized_sentences back to file
 with open("./data/tokenized_sentences.json", "w", encoding="utf-8") as f:
     json.dump(
-        {"tokenized_sentences": tokenized_sentences}, f, ensure_ascii=False, indent=2
+        {
+            "tokenized_sentences": tokenized_sentences,
+            "tokenized_test_sentences": tokenized_test_sentences,
+        },
+        f,
+        ensure_ascii=False,
+        indent=2,
     )

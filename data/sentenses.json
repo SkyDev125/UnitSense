@@ -1,5 +1,5 @@
 {
-    "sentences": [
+    "training_dataset": [
         "The car is 100km away from the city center. Once we get there, we can buy 20 boxes of chocolates.",
         "My mom told me to grab the plank that was 5' long and 7 feet wide.",
         "Can you grab me some oranges? Sure! There's only 5 in the fridge though.",
@@ -7,5 +7,11 @@
         "The measurements of the table turned out to be 5' by 3'.",
         "How tall are you dude? Oh, I'm 6'2''. You? I'm 5'10\".",
         "That tree must be at least 20.6 feet tall."
+    ],
+    "testing_dataset": [
+        "The distance from the school to the park is 1.5 miles.",
+        "I need a piece of wood that is 3 foot long and 2 in wide.",
+        "The package weighs 10 pounds and is 12 in by 8''.",
+        "This is quite a large box, it measures 2\" by 3' by 1 feet."
     ]
 }
